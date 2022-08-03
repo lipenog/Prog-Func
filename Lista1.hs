@@ -10,6 +10,15 @@ f3 _ 0 = 0
 f3 0 _ = 0
 f3 x y = x + f3 x (y - 1)
 
+tamInt :: Int -> Int
+tamInt 0 = 1
+tamInt x = 1 + tamInt (div x 10)
+
+f11 :: Int -> Int -> Int
+f11 numero x
+    | x < tamInt numero =  mod (div numero (10^((tamInt numero) - x - 2))) 10
+    | otherwise = (-1)
+
 sales :: Int -> Int
 sales 1 = 42
 sales 2 = 0
@@ -41,6 +50,7 @@ f14d _ 0 = []
 f14d valor dia
     | sales dia < valor = dia : f14d valor (dia - 1)
     | otherwise = f14d valor (dia - 1)
+
 
 f19 :: String -> Int -> String
 f19 _ 0 = ""
